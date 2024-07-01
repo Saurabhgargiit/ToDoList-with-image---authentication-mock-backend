@@ -1,17 +1,11 @@
 import * as actionTypes from '../actionTypes';
 import { database } from '../../db/userDatabase';
 
-//isLoggedIn --> true/false whether user is loggedIn
-//fromLogin --> true --> if action is dispatched after proper login using username password
-//fromLogin --> false  --> if action is dispatched from app
-
-export const loginAction = (isLoggedIn, fromLogin, loginInfo = {}) => {
-    if (isLoggedIn && fromLogin) {
-        // CommonUtils.saveTokens(loginInfo?.data);
-    }
+export const loginAction = (isLoggedIn, loginInfo = {}) => {
     const loggedInData = {
         isLoggedIn: isLoggedIn,
-        loginErr: !isLoggedIn && fromLogin ? loginInfo : '',
+        userInfo: isLoggedIn ? loginInfo : {},
+        loginErr: !isLoggedIn ? loginInfo : {},
     };
     return {
         type: actionTypes.LOGIN,
@@ -21,6 +15,7 @@ export const loginAction = (isLoggedIn, fromLogin, loginInfo = {}) => {
 
 export const getLoginData = (data) => {
     return (dispatch) => {
+        //mock backend
         const promise = new Promise((resolve, reject) => {
             setTimeout(() => {
                 const { email, password: enteredPass } = data;
@@ -42,15 +37,14 @@ export const getLoginData = (data) => {
                     result: 'success',
                     data: { ...res },
                 };
-                console.log(finalRes);
-                dispatch(loginAction(true, true, finalRes));
+                dispatch(loginAction(true, finalRes));
             })
             .catch((err) => {
                 const finalErr = {
                     result: 'error',
                     data: err,
                 };
-                dispatch(loginAction(false, true, finalErr));
+                dispatch(loginAction(false, finalErr));
             });
     };
 };

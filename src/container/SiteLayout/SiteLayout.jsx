@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SiteLayout = ({}) => {
-    return <div></div>;
+    return <div>Site Layout</div>;
 };
 
 export default SiteLayout;

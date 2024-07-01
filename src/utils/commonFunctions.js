@@ -8,3 +8,10 @@ export const clearStorage = () => {
 
     localStorage.removeItem(IS_AUTHENTICATED);
 };
+
+export const storeLoginData = (data) => {
+    const { isLoggedIn, userId, email } = data;
+    localStorage.setItem(IS_AUTHENTICATED, isLoggedIn);
+    localStorage.setItem(USER_ID, userId);
+    localStorage.setItem(USER_EMAIL, email);
+};

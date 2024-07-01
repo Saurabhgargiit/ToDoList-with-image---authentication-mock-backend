@@ -1,8 +1,7 @@
 import * as actionTypes from '../actionTypes';
 
 const loginIntialState = {
-    loggedIn: false,
-    loggedInData: [],
+    loggedInData: {},
 };
 
 const loginReducer = (state = loginIntialState, action) => {
@@ -10,7 +9,6 @@ const loginReducer = (state = loginIntialState, action) => {
         case actionTypes.LOGIN:
             return {
                 ...state,
-                loggedIn: action.loggedInData?.isLoggedIn,
                 loggedInData: action.loggedInData,
             };
 
