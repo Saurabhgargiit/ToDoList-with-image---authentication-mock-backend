@@ -10,7 +10,7 @@ import { clearStorage, storeLoginData } from '../../utils/commonFunctions';
 import { CommonConstants } from '../../utils/globalConstants';
 import Loader from '../../components/Loader/Loader';
 
-function Authentication({ location, navigate, setIsLoggedIn, setAppDataLoading }) {
+function Authentication({ setIsLoggedIn }) {
     const { IS_AUTHENTICATED, USER_EMAIL, USER_ID } = CommonConstants;
 
     const [loading, setLoading] = useState(true);
