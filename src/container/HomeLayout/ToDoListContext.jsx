@@ -10,6 +10,7 @@ const intialValue = {
     submitHandler: () => {},
     editFunction: () => {},
     removeFunction: () => {},
+    checkBoxHandler: () => {},
 };
 
 export const TodoContext = React.createContext(intialValue);
@@ -103,6 +104,17 @@ export const ToDoProvideContext = ({ children }) => {
         setListData(() => newList);
     };
 
+    const checkBoxHandler = (id, selected) => {
+        setListData((prev) =>
+            prev.map((el) => {
+                if (el.id === id) {
+                    return { ...el, status: selected ? 'completed' : 'tobeDone' };
+                }
+                return el;
+            })
+        );
+    };
+
     // Below are functions for updates to localstorage triggered by useEffect
     const updateListToStorage = () => {
         setTimeout(() => {
@@ -153,6 +165,7 @@ export const ToDoProvideContext = ({ children }) => {
                 submitHandler: submitHandler,
                 editFunction: editHandler,
                 removeFunction: deleteHandler,
+                checkBoxHandler: checkBoxHandler,
             }}
         >
             {children}
