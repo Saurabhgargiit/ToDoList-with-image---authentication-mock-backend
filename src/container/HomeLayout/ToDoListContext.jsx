@@ -3,14 +3,16 @@ import { useSelector } from 'react-redux';
 import { Todo, TodoImage } from './ToDoList/TodoClass';
 
 const intialValue = {
-    listData: [],
+    filteredData: [],
     edit: false,
     editData: {},
     imageList: [],
+    filteredType: 'all',
     submitHandler: () => {},
     editFunction: () => {},
     removeFunction: () => {},
     checkBoxHandler: () => {},
+    tasksFilterHandler: () => {},
 };
 
 export const TodoContext = React.createContext(intialValue);
@@ -20,6 +22,9 @@ export const ToDoProvideContext = ({ children }) => {
     const [imageList, setImageList] = useState([]);
     const [edit, setEdit] = useState(false);
     const [editData, setEditData] = useState({});
+
+    const [filteredType, setFilteredType] = useState('all');
+    const [filteredData, setFilteredData] = useState([]);
 
     const firstLoadRef = useRef(true);
 
@@ -104,6 +109,7 @@ export const ToDoProvideContext = ({ children }) => {
         setListData(() => newList);
     };
 
+    //To mark check box completion
     const checkBoxHandler = (id, selected) => {
         setListData((prev) =>
             prev.map((el) => {
@@ -113,6 +119,24 @@ export const ToDoProvideContext = ({ children }) => {
                 return el;
             })
         );
+    };
+
+    //when Filer is changed
+    const tasksFilterHandler = (value) => {
+        setFilteredType(value);
+        switch (value) {
+            case 'all': {
+                setFilteredData(() => listData);
+                break;
+            }
+            case 'tobeDone':
+            case 'completed': {
+                setFilteredData(() => listData.filter((el) => el.status === value));
+                break;
+            }
+            default:
+                break;
+        }
     };
 
     // Below are functions for updates to localstorage triggered by useEffect
@@ -134,6 +158,7 @@ export const ToDoProvideContext = ({ children }) => {
         const savedImageData = JSON.parse(localStorage.getItem(`${userId}_images`));
         if (savedData) {
             setListData(() => savedData);
+            setFilteredData(() => savedData);
         }
         if (savedImageData) {
             setImageList(() => savedImageData);
@@ -143,6 +168,7 @@ export const ToDoProvideContext = ({ children }) => {
     //For saving todo list to localstorage
     useEffect(() => {
         if (firstLoadRef.current) return;
+        tasksFilterHandler(filteredType);
         updateListToStorage();
     }, [listData]);
 
@@ -158,14 +184,16 @@ export const ToDoProvideContext = ({ children }) => {
     return (
         <TodoContext.Provider
             value={{
-                listData: listData,
+                filteredData: filteredData,
                 edit: edit,
                 editData: editData,
                 imageList: imageList,
+                filteredType: filteredType,
                 submitHandler: submitHandler,
                 editFunction: editHandler,
                 removeFunction: deleteHandler,
                 checkBoxHandler: checkBoxHandler,
+                tasksFilterHandler: tasksFilterHandler,
             }}
         >
             {children}
