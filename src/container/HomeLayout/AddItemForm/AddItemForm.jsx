@@ -2,6 +2,8 @@ import React, { useRef, useContext, useEffect, useState } from 'react';
 import { TodoContext } from '../ToDoListContext';
 import Button from '../../../components/Button/Button';
 
+import './AddItemForm.scss';
+
 const AddItemForm = (props) => {
     const todoTextInputRef = useRef(null);
     const todoImageInputRef = useRef(null);
@@ -65,29 +67,26 @@ const AddItemForm = (props) => {
     }, [editData, edit]);
 
     return (
-        <form onSubmit={formSubmit}>
+        <form onSubmit={formSubmit} className='add-item-form'>
             <label htmlFor='TodoInput'>Add Todo item</label>
             <input type='text' id='TodoInput' ref={todoTextInputRef}></input>
-            <label htmlFor='TodoImage' className='noDisplay'>
-                Add Image
-            </label>
-            <input
-                type='file'
-                id='TodoImage'
-                ref={todoImageInputRef}
-                onChange={handleImageChange}
-            ></input>
-            {imagePreview && (
-                <>
-                    <img
-                        src={imagePreview}
-                        alt='Preview'
-                        style={{ width: '100px', height: '100px' }}
-                    />
-                    <Button title='CLear Image' onClickCallBk={() => clearImage(edit)} />
-                </>
-            )}
+
+            <div className='image-preview-container'>
+                <label htmlFor='TodoImage' className={imagePreview ? 'noDisplay' : ''}>
+                    Add Image
+                </label>
+                <input
+                    type='file'
+                    id='TodoImage'
+                    ref={todoImageInputRef}
+                    onChange={handleImageChange}
+                    className='noDisplay'
+                ></input>
+                {imagePreview && <img src={imagePreview} alt='Preview' />}
+            </div>
+
             <Button style='primary' title='Add Item' type='submit' onClickCallBk={formSubmit} />
+            {imagePreview && <Button title='Clear Image' onClickCallBk={() => clearImage(edit)} />}
         </form>
     );
 };

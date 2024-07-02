@@ -4,12 +4,20 @@ import { ToDoProvideContext } from './ToDoListContext';
 import ToDoList from './ToDoList/ToDoList';
 import Filter from './Filter/Filter';
 
+import './HomeLayout.scss';
+
 function HomeLayout() {
     return (
         <ToDoProvideContext>
-            <Filter />
-            <AddItemForm />
-            <ToDoList />
+            <div className='layout'>
+                <div className='form-container'>
+                    <Filter />
+                    <AddItemForm />
+                </div>
+                <div className='list-container'>
+                    <ToDoList />
+                </div>
+            </div>
         </ToDoProvideContext>
     );
 }

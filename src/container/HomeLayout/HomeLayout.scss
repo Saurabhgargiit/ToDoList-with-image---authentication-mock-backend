@@ -1,0 +1,16 @@
+@import '../../styles/style.scss';
+
+.layout {
+    display: flex;
+    height: 500px;
+    .form-container {
+        width: 30%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        background-color: $formBackgroundColor;
+    }
+    .list-container {
+        width: 100%;
+    }
+}

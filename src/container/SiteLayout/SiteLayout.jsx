@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 
 import Header from '../../components/Header/Header';
 import Routers from '../../routers/router';
-import Footer from '../../components/Footer/Footer';
 import withRouter from '../../hoc/withRouter';
 
 const SiteLayout = ({ location, navigate }) => {
@@ -14,7 +13,6 @@ const SiteLayout = ({ location, navigate }) => {
         <>
             <Header userId={userId} />
             <Routers />
-            <Footer />
         </>
     ) : (
         <div>Error appeared</div>
