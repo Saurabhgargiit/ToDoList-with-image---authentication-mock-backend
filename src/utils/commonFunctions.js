@@ -15,3 +15,8 @@ export const storeLoginData = (data) => {
     localStorage.setItem(USER_ID, userId);
     localStorage.setItem(USER_EMAIL, email);
 };
+
+export const logout = () => {
+    clearStorage();
+    window.location.reload();
+};

@@ -6,12 +6,29 @@ import List from './List';
 import './ToDoList.scss';
 
 const ToDoList = () => {
-    const { listData } = useContext(TodoContext);
+    const { listData, imageList } = useContext(TodoContext);
     return (
         <ul>
-            {listData.map((el) => (
-                <List key={el.id} item={el.item} id={el.id}></List>
-            ))}
+            {listData.map((el) => {
+                const { id, item, imageFlag, status } = el;
+                if (imageFlag) {
+                    const [imageObj] = imageList.filter((obj) => id === obj.id);
+                    const { image } = imageObj;
+                    return (
+                        <List
+                            item={item}
+                            id={id}
+                            key={id}
+                            imageFlag={imageFlag}
+                            status={status}
+                            imageData={image}
+                        />
+                    );
+                }
+                return (
+                    <List item={item} id={id} key={id} imageFlag={imageFlag} status={status}></List>
+                );
+            })}
         </ul>
     );
 };
