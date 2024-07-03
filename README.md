@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# ToDoList with Image and Authentication (Mock Backend)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Objective
 
-## Available Scripts
+This project aims to create a small React application that allows authenticated users to manage a to-do list. 
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+### User Authentication
+- Simple login system (with mocked backend)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### To-Do List
+- Allow authenticated users to add, edit & delete the task (image can be added in task)
+- List to display tasks.
+- Checkbox to mark tasks as completed.
+- Filter for completed tasks.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### State Management, Routing & Storage
+- Redux is used for global state management (login and user data).
+- React-routing-dom is used
+- Local storage is used for storing tasks.
 
-### `npm test`
+### Styling
+- Basic styling. Focused mainly on functionality.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+### Steps to Start the Code
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/Saurabhgargiit/ToDoList-with-image-authentication-mock-backend.git
+    ```
+2. Install the dependencies:
+    ```bash
+    npm install
+    ```
+3. Start the application:
+    ```bash
+    npm start
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Valid Credentials for Login
+- User 1:
+    - Email: saurabh@gmail.com
+    - Password: 1234567890
+- User 2:
+    - Email: saurabhgarg@gmail.com
+    - Password: 1234567890
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Queries:
+For queries, please connect to Saurabh Garg [saurabhgarg.iitbhu@gmail.com](mailto:saurabhgarg.iitbhu@gmail.com)
