@@ -15,7 +15,6 @@ const Dropdown = ({
             {el.label}
         </option>
     ));
-    // console.log(optionsList);
 
     const changeHandler = (e) => {
         e.stopPropagation();

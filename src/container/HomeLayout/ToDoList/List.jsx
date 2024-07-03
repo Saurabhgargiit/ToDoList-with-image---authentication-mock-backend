@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
 import { TodoContext } from '../ToDoListContext';
 
-import './List.scss';
 import Button from '../../../components/Button/Button';
+import './List.scss';
 
 const List = ({ id, item, imageFlag, status, imageData }) => {
     const { removeFunction, editFunction, checkBoxHandler } = useContext(TodoContext);
 
     return (
-        <div className='displayFlex'>
-            <li id={id} key={'li' + id} className={'list'}>
+        <li id={id} key={'li' + id} className='displayFlex'>
+            <div className={'list'}>
                 <label htmlFor={id + 'check'} className='checkbox-container'>
                     <input
                         type='checkbox'
@@ -23,7 +23,7 @@ const List = ({ id, item, imageFlag, status, imageData }) => {
                 <div className={'image-preview-container ' + (!imageFlag ? 'noImage' : '')}>
                     {imageFlag && <img src={imageData} alt={item} />}
                 </div>
-            </li>
+            </div>
             <div className=''>
                 <Button
                     title='Delete'
@@ -36,7 +36,7 @@ const List = ({ id, item, imageFlag, status, imageData }) => {
                     className='formbutton'
                 />
             </div>
-        </div>
+        </li>
     );
 };
 

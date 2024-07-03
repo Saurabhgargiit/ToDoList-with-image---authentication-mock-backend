@@ -1,43 +1,16 @@
 //@@@@@@@@@@colors@@@@@@@@@@@@@@@@@@@@@@@
-
-$icon-color: #5f6368;
-$primaryText: #202124;
-$secondaryText: #3c4043;
-$backgroundheaderfooterColor: #01acc1;
-$backgroundhovering: #ffffff14;
 $whiteColor: #fff;
-$linkBackgroundColorHover: $backgroundheaderfooterColor;
-$linklabelColorHover: $whiteColor;
+$backCheckBoxColor: #01acc1;
 $formBackgroundColor: #e5f6f8;
-
-// $navigatorlinkColor: #029aae;
-$navigatorlinkColor: $backgroundheaderfooterColor;
-
-//Error Message
-$erroMsgColor: #ff0000e3;
-
-//Feel colors
-$negativeColor: $erroMsgColor;
-$positiveColor: #008000;
-
-//Borders
-$darkBorder: #9c9db5;
-$inputFieldBorder: #bdc1c6;
-$rowBorderColor: #5f63684d;
-$primaryBorderSuttle: #dee2e6;
-
-$rowBorder: 1px solid $rowBorderColor;
-$sideRowBorder: 0.75px solid #66cdd9;
 
 //Btn Colors
 $neutralBtnColor: #fff;
 $neutralBtnColorHover: #f0f0f5;
-$primaryBtnColor: $backgroundheaderfooterColor;
+$primaryBtnColor: $backCheckBoxColor;
 $primaryBtnColorHover: #029aae;
 
-//Pagination colors
-$paginationDigitNumber: $backgroundheaderfooterColor;
-$paginationBorderColor: $backgroundheaderfooterColor;
+//Borders
+$darkBorder: #9c9db5;
 
 //Common classes
 .positionRelative {
@@ -83,22 +56,6 @@ $paginationBorderColor: $backgroundheaderfooterColor;
     align-items: center;
 }
 
-.font400 {
-    font-weight: 400;
-}
-
-.font600 {
-    font-weight: 600;
-}
-
-.font500 {
-    font-weight: 500;
-}
-
-.font700 {
-    font-weight: 700;
-}
-
 .image-preview-container {
     width: 380px;
     height: 150px;
@@ -113,4 +70,50 @@ $paginationBorderColor: $backgroundheaderfooterColor;
 .image-preview-container img {
     max-width: 100%;
     max-height: 100%;
+}
+
+//Checkbox styling
+.checkbox-container {
+    padding-right: 2rem;
+    position: relative;
+    cursor: pointer;
+    display: block;
+
+    input[type='checkbox'] {
+        visibility: hidden;
+    }
+
+    .checkbox {
+        position: absolute;
+        width: 1.3rem;
+        height: 1.3rem;
+        border: solid 1px;
+        background-color: $whiteColor;
+    }
+
+    &:hover input:not(:disabled) ~ .checkbox {
+        background-color: $primaryBtnColorHover;
+    }
+
+    input:checked ~ .checkbox {
+        background-color: $backCheckBoxColor;
+        border: solid 1.5px;
+    }
+
+    .checkbox::after {
+        content: '';
+        position: absolute;
+        display: none;
+        left: 6px;
+        top: 2px;
+        width: 6px;
+        height: 12px;
+        border: solid $whiteColor;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+    }
+
+    input:checked ~ .checkbox::after {
+        display: block;
+    }
 }

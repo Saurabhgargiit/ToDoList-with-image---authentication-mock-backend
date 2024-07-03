@@ -48,7 +48,6 @@ function Authentication({ setIsLoggedIn }) {
 
     useEffect(() => {
         if (fetchedDetails?.isLoggedIn) {
-            console.log(fetchedDetails);
             const isLoggedIn = fetchedDetails?.isLoggedIn;
             const { userId, email } = fetchedDetails.userInfo?.data;
             storeLoginData({ isLoggedIn, userId, email });

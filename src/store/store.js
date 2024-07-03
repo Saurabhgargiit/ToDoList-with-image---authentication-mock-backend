@@ -2,12 +2,10 @@ import { legacy_createStore as createStore, applyMiddleware, combineReducers } f
 import { thunk } from 'redux-thunk';
 
 import loginReducer from './reducers/loginreducer';
-// import userInfoReducer from './reducers/userreducer/userInforReducer';
 
 const createReducer = (asyncReducers) =>
     combineReducers({
         login: loginReducer,
-        // userInfoReducer: userInfoReducer,
         ...asyncReducers,
     });
 
